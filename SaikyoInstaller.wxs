@@ -1,0 +1,26 @@
+<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<Wix xmlns=\"http://schemas.microsoft.com/wix/2006/wi\">
+  <Product Id=\"*\" Name=\"SaikyoVpn\" Language=\"1033\" Version=\"1.0.0.0\" Manufacturer=\"Saikyo\" UpgradeCode=\"{AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE}\">
+    <Package InstallerVersion=\"500\" Compressed=\"yes\" InstallScope=\"perMachine\" />
+
+    <MediaTemplate />
+
+    <Directory Id=\"TARGETDIR\" Name=\"SourceDir\">
+      <Directory Id=\"ProgramFilesFolder\">
+        <Directory Id=\"INSTALLFOLDER\" Name=\"SaikyoVpn\">
+          <Component Id=\"cmpGuiExe\" Guid=\"{11111111-2222-3333-4444-555555555555}\">
+            <File Id=\"filGuiExe\" Source=\"..\\artifacts\\gui\\SaikyoVpn.Gui.exe\" KeyPath=\"yes\" />
+          </Component>
+          <Component Id=\"cmpServiceExe\" Guid=\"{66666666-7777-8888-9999-AAAAAAAAAAAA}\">
+            <File Id=\"filServiceExe\" Source=\"..\\artifacts\\service\\SaikyoVpn.Service.exe\" KeyPath=\"yes\" />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id=\"ProductFeature\" Title=\"SaikyoVpn\" Level=\"1\">
+      <ComponentRef Id=\"cmpGuiExe\" />
+      <ComponentRef Id=\"cmpServiceExe\" />
+    </Feature>
+  </Product>
+</Wix>
